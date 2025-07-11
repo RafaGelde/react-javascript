@@ -12,9 +12,13 @@ function Links({ links, onToggle }) {
             <span>{link.title}</span>
             <button
               onClick={() => onToggle(link.id)}
-              className="bg-slate-500 text-white rounded px-2 py-1"
+              className="bg-slate-500 text-white rounded px-2 py-1 transition-tranform duration-300"
             >
-              <ArrowDown />
+              <ArrowDown
+                className={`w-5 h-5 transform transition-transform duration-300 ${
+                  link.expand ? "rotate-180" : "rotate-0"
+                }`}
+              />
             </button>
           </div>
           {link.expand && (
