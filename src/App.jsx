@@ -6,22 +6,33 @@ function App() {
     {
       id: 1,
       title: "GLPI",
-      descriptiopn: "Sistema de requisição de suprimentos",
+      description: "Sistema de requisição de suprimentos",
       link: "https://www.youtube.com/watch?v=2RWsLmu8yVc",
+      expand: false,
     },
     {
       id: 2,
       title: "MovTech",
-      descriptiopn: "Sistema de requisição de suprimentos",
+      description: "Sistema de requisição de suprimentos",
       link: "https://www.youtube.com/watch?v=2RWsLmu8yVc",
+      expand: false,
     },
     {
       id: 3,
       title: "Fusion",
-      descriptiopn: "Sistema de requisição de suprimentos",
+      description: "Sistema de requisição de suprimentos",
       link: "https://www.youtube.com/watch?v=2RWsLmu8yVc",
+      expand: false,
     },
   ]);
+
+  const toggleExpand = (id) => {
+    setLinks((prevLinks) =>
+      prevLinks.map((link) =>
+        link.id === id ? { ...link, expand: !link.expand } : link
+      )
+    );
+  };
 
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
@@ -29,7 +40,7 @@ function App() {
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Sistemas da Orbenk
         </h1>
-        <Links links={links} />
+        <Links links={links} onToggle={toggleExpand} />
       </div>
     </div>
   );
